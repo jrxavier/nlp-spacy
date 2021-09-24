@@ -21,6 +21,7 @@ for token in doc:
 doc = nlp(u'I can promise it is worth your time.')
 sent = ''
 for i, token in enumerate(doc):
+    # PRP = Personal Pronoun ('I') / MD = Modal auxiliary verb ('can')  / VB = Verb ('promise')
     if token.tag_ == 'PRP' and doc[i+1].tag_ == 'MD' and doc[i+2].tag_ == 'VB':
         sent = doc[i+1].text.capitalize() + ' ' + doc[i].text
         sent = sent + ' ' + doc[i+2:].text
